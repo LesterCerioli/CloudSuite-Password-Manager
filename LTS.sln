@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordsGenerator", "PasswordsGenerator\PasswordsGenerator.csproj", "{17F0CA79-6EBE-465D-AB86-E17594F1E45D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PasswordsGenerator", "PasswordsGenerator\PasswordsGenerator.csproj", "{17F0CA79-6EBE-465D-AB86-E17594F1E45D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rest", "Rest", "{36D07833-B9F1-43C1-9718-82A58A60B036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Services.SecretManager.Api", "Rest\CloudSuite.Services.SecretManager.Api\CloudSuite.Services.SecretManager.Api.csproj", "{F43754BC-10BA-46B5-B921-8A19779E0F4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{17F0CA79-6EBE-465D-AB86-E17594F1E45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17F0CA79-6EBE-465D-AB86-E17594F1E45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17F0CA79-6EBE-465D-AB86-E17594F1E45D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43754BC-10BA-46B5-B921-8A19779E0F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43754BC-10BA-46B5-B921-8A19779E0F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43754BC-10BA-46B5-B921-8A19779E0F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43754BC-10BA-46B5-B921-8A19779E0F4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F43754BC-10BA-46B5-B921-8A19779E0F4F} = {36D07833-B9F1-43C1-9718-82A58A60B036}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {809AC79A-30B9-465D-B514-B0B46FF228A4}
