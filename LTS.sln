@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordGenerator.Domain", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordGenerator.Infrastructure", "PasswordGenerator.Infrastructure\PasswordGenerator.Infrastructure.csproj", "{F4176302-53E9-44AF-B980-1C5CD19E7C3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordGenerator.Infrastructure.CrossCutting", "PasswordGenerator.Infrastructure.CrossCutting\PasswordGenerator.Infrastructure.CrossCutting.csproj", "{143D8D3F-C4E0-46C8-AA27-11863A0C270A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F4176302-53E9-44AF-B980-1C5CD19E7C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4176302-53E9-44AF-B980-1C5CD19E7C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4176302-53E9-44AF-B980-1C5CD19E7C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{143D8D3F-C4E0-46C8-AA27-11863A0C270A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143D8D3F-C4E0-46C8-AA27-11863A0C270A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143D8D3F-C4E0-46C8-AA27-11863A0C270A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143D8D3F-C4E0-46C8-AA27-11863A0C270A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
