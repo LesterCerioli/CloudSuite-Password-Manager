@@ -10,7 +10,9 @@ namespace PasswordGenerator.Application.Handlers.Passwords.Responses
 {
 	public class CreatePasswordResponse : Response
 	{
-		public Guid RequestId { get; private set; }
+        private object validationResult;
+
+        public Guid RequestId { get; private set; }
 
 		public CreatePasswordResponse(Guid requestId, ValidationResult result)
 		{
@@ -26,5 +28,10 @@ namespace PasswordGenerator.Application.Handlers.Passwords.Responses
 			RequestId = requestId;
 			this.AddError(falhaValidacao);
 		}
-	}
+
+        public CreatePasswordResponse(object result, object validationResult) : base(result)
+        {
+            this.validationResult = validationResult;
+        }
+    }
 }
