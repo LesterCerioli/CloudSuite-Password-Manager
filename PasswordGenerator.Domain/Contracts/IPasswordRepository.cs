@@ -11,6 +11,8 @@ namespace PasswordGenerator.Domain.Contracts
 	{
 		Task<Password> GetByCaracter(int? caracterNumber);
 
+		Task<Password> GetBySenha(string senha);
+		
 		Task<Password> GetByDate(DateTimeOffset? createdOn);
 
 		Task<IEnumerable<Password>> GetList();

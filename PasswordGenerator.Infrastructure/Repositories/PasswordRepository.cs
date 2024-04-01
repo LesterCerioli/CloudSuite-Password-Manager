@@ -48,7 +48,12 @@ namespace PasswordGenerator.Infrastructure.Repositories
 			return await DbSet.ToListAsync();
 		}
 
-		public void Remove(Password password)
+        public async Task<Password> GetBySenha(string senha)
+        {
+            return await DbSet.FirstOrDefaultAsync(a => a.Senha == senha);
+        }
+
+        public void Remove(Password password)
 		{
 			DbSet?.Remove(password);
 		}
@@ -62,5 +67,7 @@ namespace PasswordGenerator.Infrastructure.Repositories
 		{
 			Db.Dispose();
 		}
-	}
+
+        
+    }
 }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace PasswordGenerator.Application.Handlers.Passwords
 {
-	public class CreatePasswordHandler : IRequestHandler<CreatePasswordCommand, CreatePasswordResponse>
+    public class CreatePasswordHandler : IRequestHandler<CreatePasswordCommand, CreatePasswordResponse>
     {
         private readonly IPasswordRepository _passwordRepository;
         private readonly ILogger<CreatePasswordHandler> _logger;
@@ -23,42 +23,32 @@ namespace PasswordGenerator.Application.Handlers.Passwords
             _logger = logger;
         }
 
+
         public async Task<CreatePasswordResponse> Handle(CreatePasswordCommand command, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CreatePasswordCommand: {JsonSerializer.Serialize(command)}");
-
-            var validator = new CreatePasswordCommandValidator(); // Assuming CreatePasswordCommandValidator is your validation class
-            var validationResult = validator.Validate(command);
+            var validationResult = new CreatePasswordCommandValidation().Validate(command);
 
             if (validationResult.IsValid)
             {
                 try
                 {
-                    var passwordSenha = await _passwordRepository.GetByCaracter(command.CaracterNumber);
-
+                    var passwordSenha = await _passwordRepository.GetBySenha(command.Senha);
                     if (passwordSenha != null)
                     {
-                        return new CreatePasswordResponse(command.Id, "Password already exists.");
+                        return await Task.FromResult(new CreatePasswordResponse(command.Id, "Senha já cadastrados já cadastrado."));
                     }
-
                     await _passwordRepository.Add(command.GetEntity());
-                    return new CreatePasswordResponse(command.Id, validationResult);
+                    return await Task.FromResult(new CreatePasswordResponse(command.Id, validationResult));
                 }
                 catch (Exception ex)
                 {
                     _logger.LogCritical(ex.Message);
-                    return new CreatePasswordResponse(command.Id, "Unable to process your request.");
+                    return await Task.FromResult(new CreatePasswordResponse(command.Id, "It`s not possible to process your solicitation."));
                 }
             }
 
-            return new CreatePasswordResponse(command.Id, validationResult);
-        }
-    }
-
-    internal class CreatePasswordCommandValidator
-    {
-        public CreatePasswordCommandValidator()
-        {
+            return await Task.FromResult(new CreatePasswordResponse(command.Id, validationResult));
         }
     }
 }
